@@ -1,1 +1,4 @@
-
+@echo off  
+set /a variable=(2*5)/2  
+echo Le résultat est %variable%  
+pause
