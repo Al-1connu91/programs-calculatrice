@@ -1,4 +1,90 @@
-@echo off  
-set /a variable=(2*5)/2  
-echo Le résultat est %variable%  
-pause
+@echo off
+:: Variable ::
+set nom=Calculatrice-Programs
+set auteur=Al-1connu91
+set ver=v1.0
+::::::::::::::
+:: Code non-protégé et servis d'exemple pour les debutants ::
+title %nom% - %ver% par %auteur%
+:deb
+color F
+cls
+echo.
+echo [1] Additionner
+echo [2] Soustraire
+echo [exit] Quitter
+echo.
+echo.
+echo.
+echo.
+set /p choice=Votre choix:
+IF %CHOICE% equ 1 goto add
+IF %choice% equ 2 goto sous
+IF %choice% equ exit exit
+IF NOT DEFINED CHOICE goto deberror
+:deberror
+color C
+cls
+echo.
+echo [1] Additionner
+echo [2] Soustraire
+echo [exit] Quitter
+echo.
+echo ::::::Une erreur s'est produis:::::
+echo ::::::Error1: %choice% n'est pas disponible::::::
+echo.
+set /p choiceerror=Votre choix:
+IF %CHOICEERROR% equ 1 goto add
+IF %choiceerror% equ 2 goto sous
+IF %choiceerror% equ exit exit
+IF NOT DEFINED CHOICE goto deberror2
+:deberror2
+color C
+cls
+echo.
+echo [1] Additionner
+echo [2] Soustraire
+echo [exit] Quitter
+echo.
+echo ::::::Une erreur s'est produis:::::
+echo ::::::Error1: %choiceerror% n'est pas disponible::::::
+echo.
+set /p choiceerror=Votre choix:
+IF %CHOICEERROR% equ 1 goto add
+IF %choiceerror% equ 2 goto sous
+IF %choiceerror% equ exit exit
+IF NOT DEFINED CHOICE goto deberror
+goto deb
+:add
+CLS rem Ajouté apres la video
+echo.
+set /p add1=Quel nombre voulez-vous additionner?
+set /p add2=Et ?
+set /a add = %add1% + %add2%
+echo Resultat: %add1% + %add2% = %add%
+echo.
+echo [2] Soustraire
+echo [exit] Quitter
+echo.
+set /p choiceadd=:
+IF %CHOICEADD% EQU 2 (cls & goto sous)
+IF %CHOICEADD% equ exit exit
+IF NOT DEFINED CHOICE goto deb
+goto deb
+:sous
+cls rem Ajouté apres la video
+echo.
+set /p sous1=Quel nombre voulez-vous soustraire?
+set /p sous2=Et ?
+set /a sous = %sous1% - %sous2%
+echo Resultat: %sous1% - %sous2% = %sous%
+echo.
+echo [2] Additionner
+echo [retour] Retourner au debut
+echo [exit] Quitter
+echo.
+set /p choicesous=:
+IF %CHOICEADD% EQU 1 (cls & goto sous)
+IF %CHOICEADD% EQU retour (cls & goto deb)
+IF %CHOICEADD% equ exit exit
+IF NOT DEFINED CHOICE goto deb
